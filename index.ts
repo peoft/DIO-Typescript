@@ -1,22 +1,27 @@
-// Generic Types
-
-// function adicionaApendiceALista<T>(array: T[], value:T){
-//     return array.map(() => value);
-// }
-
-// adicionaApendiceALista(['a', 'b', 'c'], 'd');
-
-interface IUsuario {
-    id: string;
-    email: string;
-    // item opcional
-    cargo?: 'gerente' | 'coordenador' | 'supervisor' | 'funcionario' ;
+interface ICachorro {
+    nome: string;
+    idade: number;
+    parqueFavorito ?: string;
 }
 
-function redirecione(usuario: IUsuario) {
-    if (usuario.cargo) {
-        // redirecionar(usuario.cargo);
+type CachorroSomenteLeitura = {
+    // -? - remove os itens opcionais
+    readonly [K in keyof ICachorro]-?: ICachorro[K];
+}
+
+
+class MeuCachorro implements CachorroSomenteLeitura {
+    idade;
+    nome;
+    parqueFavorito;
+
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
     }
-
-    //redirecionar para a área do usuário.
 }
+
+const cao = new MeuCachorro('Apolo', 14);
+cao.idade = 8;
+
+console.log(cao);
