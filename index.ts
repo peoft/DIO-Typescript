@@ -1,38 +1,25 @@
-function soma(a:number, b:number) {
-    return a + b;
+// Generic Types
+
+// function adicionaApendiceALista<T>(array: T[], value:T){
+//     return array.map(() => value);
+// }
+
+// adicionaApendiceALista(['a', 'b', 'c'], 'd');
+
+interface IUsuario {
+    id: string;
+    email: string;
 }
 
-// types - estrutura de dados - usar em junções (&) ou merges (|)
-// interfaces - contratos para implementar as classes
-
-interface IAnimal {
-    nome: string;
-    tipo: 'terrestre' | 'aquático';
-    domestico: boolean;
+interface IAdmin extends IUsuario{
+    cargo: 'gerente' | 'coordenador' | 'supervisor';
 }
 
-interface IFelino extends IAnimal {
-    visaoNoturna: boolean;
+function redirecione(usuario: IUsuario | IAdmin) {
+    if ('cargo' in usuario) {
+        // redirecionar para a área de administração.
+
+    }
+
+    // redirecionar para a área do usuário.
 }
-
-interface ICanino extends IAnimal {
-    porte: 'pequeno' | 'medio' | 'grande';
-}
-
-type IDomestico = IFelino | ICanino;
-//type IDomestico = IFelino & ICanino;
-
-const animal: IDomestico = {
-   domestico: true,
-   nome: 'cachorro',
-   porte: 'medio',
-   tipo: 'terrestre',
-}
-
-const felino: IFelino = {
-    nome: 'Leao',
-    tipo: 'terrestre',
-    domestico: true,
-    visaoNoturna: true,
-}
-
