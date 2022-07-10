@@ -1,0 +1,26 @@
+{
+  "name": "dio-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peoft/DIO-Typescript.git"
+  },
+  "author": "Paulo Eduardo Ostermann Filho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peoft/DIO-Typescript/issues"
+  },
+  "homepage": "https://github.com/peoft/DIO-Typescript#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
+}
